@@ -144,6 +144,14 @@ function getCourseInfo(course){
 	    updateShoppingCart();
 	  }
 	}
-
+    function deleteFromLocalStorage(id){
+        coursesList.forEach(function(course,i){
+            if (course.id === id){
+              coursesList.splice(i,1)
+            }
+        })
+        addCourseToLocalStorage();
+      }
+  
 
 
