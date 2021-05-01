@@ -114,6 +114,36 @@ function getCourseInfo(course){
   
 
   }
-  
+  function clearCart(e){
+	  e.preventDefault();
+	  while(shoppingCartContent.firstChild){
+	    shoppingCartContent.removeChild(shoppingCartContent.firstChild);
+	  }
+	  coursesList = [];
+	  addCourseToLocalStorage();
+	
+
+	}
+	
+
+	
+
+	function addCourseToLocalStorage(){
+	  localStorage.setItem("courses",JSON.stringify(coursesList))
+	}
+	
+
+	function getCoursesFromLocalStorage(){
+	  const cs = localStorage.getItem('courses');
+	
+
+	  if (cs === null){
+	      coursesList = [];
+	  }else{
+	    coursesList = JSON.parse(cs);
+	    updateShoppingCart();
+	  }
+	}
+
 
 
