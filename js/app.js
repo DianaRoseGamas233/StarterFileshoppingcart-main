@@ -96,5 +96,24 @@ function getCourseInfo(course){
     //append to Shooping case
     shoppingCartContent.appendChild(row);
   }
+  function updateShoppingCart(){
+    coursesList.forEach(function(course){
+       addToCart(course);
+    })
+  }
   
+
+  
+
+  function removeCourse(e){
+    if (e.target.classList.contains('remove')){
+        let id = e.target.getAttribute('data-id');
+        deleteFromLocalStorage(id);
+      e.target.parentElement.parentElement.remove();
+    }
+  
+
+  }
+  
+
 
