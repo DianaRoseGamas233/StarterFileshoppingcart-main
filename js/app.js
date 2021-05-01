@@ -48,3 +48,28 @@ function getCourseInfo(course){
     coursesList.push(courseInfo);
     addCourseToLocalStorage();
  }
+ function addToCart(courseInfo){
+	
+
+    const row = document.createElement('tr');
+    //create an image element
+    image     = document.createElement('img');
+    image.src = courseInfo.image;
+    image.style.width = '100px';
+    //append element to row (parent)
+    row.appendChild(addToTd(image,1));
+    row.appendChild(addToTd(courseInfo.title,0));
+    row.appendChild(addToTd(courseInfo.price,0));
+    //create anchor for delete button
+    const anchor = document.createElement('a');
+    anchor.href = '#';
+    anchor.setAttribute('data-id',courseInfo.id);
+    anchor.textContent = 'X';
+    anchor.classList = 'remove';
+  
+
+    row.appendChild(addToTd(anchor,1));
+    //append to Shooping case
+    shoppingCartContent.appendChild(row);
+  }
+  
