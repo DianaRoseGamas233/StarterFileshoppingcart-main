@@ -34,3 +34,17 @@ if (e.target.classList.contains("add-to-cart")){
  getCourseInfo(course);
 }
 }
+//get Course Information
+function getCourseInfo(course){
+    const courseInfo = {
+      image : course.querySelector('img').src,
+      title : course.querySelector('h4').textContent,
+      price : course.querySelector('.price span').textContent,
+      id    : course.querySelector('a').getAttribute('data-id')
+    }
+ 
+
+    addToCart(courseInfo);
+    coursesList.push(courseInfo);
+    addCourseToLocalStorage();
+ }
